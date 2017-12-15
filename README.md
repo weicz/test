@@ -128,7 +128,7 @@ Please refer to [QAT_engine][3]
 
 [3]: https://github.com/intel/QAT_Engine
 
-### Install QATzip
+### Install Async Mode Nginx
 
 **Set the following environmental variables:**
 

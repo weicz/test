@@ -21,9 +21,7 @@ Nginx\* [engine x] is an HTTP and reverse proxy server, a mail proxy server,
 and a generic TCP/UDP proxy server, originally written by Igor Sysoev.
 This project provides an extended Nginx working with asynchronous mode OpenSSL\*.
 With Intel&reg; QuickAssist Technology(QAT) acceleration, the asynchronous mode Nginx
-can provide significant performance improvement. Besides that Async Mode Nginx
-improves Nginx with new SSL engine framework which provides flexibility and usability
-of integrating Intel&reg; QuickAssist Technology.
+can provide significant performance improvement.
 
 ## Licensing
 
@@ -98,45 +96,27 @@ file: conf/nginx.conf
   offloading, user should enure that there are enough number of qat instances.
   For example, the available qat instance number should be 2x than Nginx worker
   process number.
-  For example:
-  In Nginx configuration file (`nginx.conf`), worker process number is configured
-  as 
-      ```bash
-      worker_processes 16;
-      ```
-  Then the instance configuration in QAT driver configuration file should be
-      ```bash
-      [SHIM]
-      NumberCyInstances = 1
-      NumberDcInstances = 0
-      NumProcesses = 32
-      LimitDevAccess = 1
-      ```
+
+For example:
+
+In Nginx configuration file (`nginx.conf`), worker process number is configured
+as 
+
+    ```bash
+    worker_processes 16;
+    ```
+
+Then the instance configuration in QAT driver configuration file should be
+
+    ```bash
+    [SHIM]
+    NumberCyInstances = 1
+    NumberDcInstances = 0
+    NumProcesses = 32
+    LimitDevAccess = 1
+    ```
 
 ## Installation Instructions
-
-### Build Intel&reg; QuickAssist Technology Driver
-
-Please follow the instructions contained in:
-
-**For Intel&reg; C62X Series Chipset:**
-Intel&reg; QuickAssist Technology Software for Linux\* - Getting Started Guide - HW version 1.7 (336212)
-
-**For Intel&reg; Communications Chipset 89XX Series:**
-Intel&reg; Communications Chipset 89xx Series Software for Linux\* - Getting
-Started Guide (330750)
-
-These instructions can be found on the 01.org website in the following section:
-
-[Intel&reg; Quickassist Technology][3]
-
-[3]:https://01.org/packet-processing/intel%C2%AE-quickassist-technology-drivers-and-patches
-
-### Build OpenSSL\* and QAT_engine
-
-These instructions can be found on [QAT_engine][4]
-
-[4]: https://github.com/intel/QAT_Engine
 
 ### Install Async Mode Nginx
 
@@ -162,6 +142,13 @@ These instructions can be found on [QAT_engine][4]
     make
     make install
 ```
+
+### Build OpenSSL\* and QAT_engine
+
+These instructions can be found on [QAT_engine][4]
+
+[4]: https://github.com/intel/QAT_Engine
+
 
 ## Intended Audience
 

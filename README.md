@@ -21,13 +21,13 @@ Nginx\* [engine x] is an HTTP and reverse proxy server, a mail proxy server,
 and a generic TCP/UDP proxy server, originally written by Igor Sysoev.
 This project provides an extended Nginx working with asynchronous mode OpenSSL\*.
 With Intel&reg; QuickAssist Technology(QAT) acceleration, the asynchronous mode Nginx
-can provide significantly performance improvement. Besides that Async Mode Nginx
+can provide significant performance improvement. Besides that Async Mode Nginx
 improves Nginx with new SSL engine framework which provides flexibility and usability
 of integrating Intel&reg; QuickAssist Technology.
 
 ## Licensing
 
-The Licensing of the files within this project is split as follows:
+The Licensing of the files within this project is:
 
 Intel&reg; Quickassist Technology (QAT) Async Mode Nginx - BSD License. Please 
 see the `LICENSE` file contained in the top level folder. Further details can 
@@ -55,7 +55,7 @@ This release was validated on the following:
 
 ## Additional Information
 
-Async Mode Nginx SSL engine framework provides new directives:
+* Async Mode Nginx SSL engine framework provides new directives:
 
 **Directives**
 ```bash
@@ -88,12 +88,30 @@ file: conf/nginx.conf
     }
 ```
 
+* [White Paper: Intel&reg; Quickassist Technology and OpenSSL-1.1.0:Performance][2]
+
+[2]: https://01.org/sites/default/files/downloads/intelr-quickassist-technology/intelquickassisttechnologyopensslperformance.pdf
+
 ## Limitations
 
 * Nginx support `reload` operation, when QAT hardware is involved for crypto 
   offloading, user should enure that there are enough number of qat instances.
   For example, the available qat instance number should be 2x than Nginx worker
   process number.
+  For example:
+  In Nginx configuration file (`nginx.conf`), worker process number is configured
+  as 
+      ```bash
+      worker_processes 16;
+      ```
+  Then the instance configuration in QAT driver configuration file should be
+      ```bash
+      [SHIM]
+      NumberCyInstances = 1
+      NumberDcInstances = 0
+      NumProcesses = 32
+      LimitDevAccess = 1
+      ```
 
 ## Installation Instructions
 
@@ -110,23 +128,15 @@ Started Guide (330750)
 
 These instructions can be found on the 01.org website in the following section:
 
-[Intel&reg; Quickassist Technology][1]
+[Intel&reg; Quickassist Technology][3]
 
-[1]:https://01.org/packet-processing/intel%C2%AE-quickassist-technology-drivers-and-patches
+[3]:https://01.org/packet-processing/intel%C2%AE-quickassist-technology-drivers-and-patches
 
-### Build OpenSSL\*
+### Build OpenSSL\* and QAT_engine
 
-**For OpenSSL:**
-Please refer to [OpenSSL][2]
+These instructions can be found on [QAT_engine][4]
 
-[2]: https://github.com/openssl/openssl 
-
-### Build QAT_engine
-
-**For QAT_engine:**
-Please refer to [QAT_engine][3]
-
-[3]: https://github.com/intel/QAT_Engine
+[4]: https://github.com/intel/QAT_Engine
 
 ### Install Async Mode Nginx
 

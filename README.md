@@ -145,7 +145,7 @@ Then the instance configuration in QAT driver configuration file should be
 
 These instructions can be found on [QAT_engine][4]
 
-[4]: https://github.com/intel/QAT_Engine
+[4]: https://github.com/intel/QAT_Engine#installation-instructions
 
 
 ## Intended Audience

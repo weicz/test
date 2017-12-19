@@ -11,7 +11,7 @@
 - [Limitations](#limitations)
 - [Installation Instructions](#installation-instructions)
     - [Install Async Mode Nginx](#install-async-mode-nginx)
-    - [Build OpenSSL\* and QAT_engine](#build-openssl-and-qat-engine)
+    - [Build OpenSSL\* and QAT\_engine](#build-openssl-and-qat-engine)
 - [Intended Audience](#intended-audience)
 - [Legal](#legal)
 
@@ -141,7 +141,7 @@ Then the instance configuration in QAT driver configuration file should be
     make install
 ```
 
-### Build OpenSSL\* and QAT_engine
+### Build OpenSSL\* and QAT\_engine
 
 These instructions can be found on [QAT_engine][4]
 

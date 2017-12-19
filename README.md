@@ -100,19 +100,19 @@ file: conf/nginx.conf
 For example, in Nginx configuration file (`nginx.conf`) worker process number
 is configured as 
 
-    ```bash
-    worker_processes 16;
-    ```
+```bash
+   worker_processes 16;
+```
 
 Then the instance configuration in QAT driver configuration file should be
 
-    ```bash
+```bash
     [SHIM]
     NumberCyInstances = 1
     NumberDcInstances = 0
     NumProcesses = 32
     LimitDevAccess = 1
-    ```
+```
 
 ## Installation Instructions
 

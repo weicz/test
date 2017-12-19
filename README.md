@@ -10,8 +10,8 @@
 - [Additional Information](#additional-information)
 - [Limitations](#limitations)
 - [Installation Instructions](#installation-instructions)
-    - [Build Intel&reg; QuickAssist Technology Driver](#build-intel-quickassist-technology-driver)
     - [Install Async Mode Nginx](#install-async-mode-nginx)
+    - [Build OpenSSL\* and QAT_engine](#build-openssl-and-qat-engine)
 - [Intended Audience](#intended-audience)
 - [Legal](#legal)
 
@@ -97,10 +97,8 @@ file: conf/nginx.conf
   For example, the available qat instance number should be 2x than Nginx worker
   process number.
 
-For example:
-
-In Nginx configuration file (`nginx.conf`), worker process number is configured
-as 
+For example, in Nginx configuration file (`nginx.conf`) worker process number
+is configured as 
 
     ```bash
     worker_processes 16;

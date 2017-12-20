@@ -92,10 +92,10 @@ file: conf/nginx.conf
 
 ## Limitations
 
-* Nginx support `reload` operation, when QAT hardware is involved for crypto 
-  offloading, user should enure that there are enough number of qat instances.
-  For example, the available qat instance number should be 2x than Nginx worker
-  process number.
+* Nginx supports `reload` operation, when QAT hardware is involved for crypto 
+  offload, user should enure that there are enough number of qat instances.
+  For example, the available qat instance number should be 2x equal or more than
+  Nginx worker process number.
 
 For example, in Nginx configuration file (`nginx.conf`) worker process number
 is configured as 
